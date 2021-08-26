@@ -15,7 +15,7 @@ metadata:
     type: local
     pv: panlogs
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 20Gi
@@ -36,7 +36,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-1
+          - {{ default "worker-node-1" .Values.workerNode1Hostname }}
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -46,7 +46,7 @@ metadata:
     type: local
     pv: panlogs
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 20Gi
@@ -67,7 +67,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-2
+          - {{ default "worker-node-2" .Values.workerNode2Hostname }}
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -77,7 +77,7 @@ metadata:
     type: local
     pv: panvarlog
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 20Gi
@@ -98,7 +98,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-1
+          - {{ default "worker-node-1" .Values.workerNode1Hostname }}
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -108,7 +108,7 @@ metadata:
     type: local
     pv: panvarlog
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 20Gi
@@ -129,7 +129,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-2
+          - {{ default "worker-node-2" .Values.workerNode2Hostname }}
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -139,7 +139,7 @@ metadata:
     type: local
     pv: panvarcores
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 2Gi
@@ -160,7 +160,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-1
+          - {{ default "worker-node-1" .Values.workerNode1Hostname }}
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -170,7 +170,7 @@ metadata:
     type: local
     pv: panvarcores
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 2Gi
@@ -191,7 +191,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-2
+          - {{ default "worker-node-2" .Values.workerNode2Hostname }}
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -201,7 +201,7 @@ metadata:
     type: local
     pv: panplugincfg
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 1Gi
@@ -222,7 +222,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-1
+          - {{ default "worker-node-1" .Values.workerNode1Hostname }}
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -232,7 +232,7 @@ metadata:
     type: local
     pv: panplugincfg
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 1Gi
@@ -253,7 +253,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-2
+          - {{ default "worker-node-2" .Values.workerNode2Hostname }}
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -263,7 +263,7 @@ metadata:
     type: local
     pv: panconfig
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 8Gi
@@ -284,7 +284,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-1
+          - {{ default "worker-node-1" .Values.workerNode1Hostname }}
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -294,7 +294,7 @@ metadata:
     type: local
     pv: panconfig
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 8Gi
@@ -315,7 +315,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-2
+          - {{ default "worker-node-2" .Values.workerNode2Hostname }}
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -325,7 +325,7 @@ metadata:
     type: local
     pv: panplugins
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 200Mi
@@ -346,7 +346,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-1
+          - {{ default "worker-node-1" .Values.workerNode1Hostname }}
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -356,7 +356,7 @@ metadata:
     type: local
     pv: panplugins
 spec:
-  storageClassName: pan-local-storage
+  storageClassName: {{ default "pan-local-storage" .Values.storageClassName }}
   persistentVolumeReclaimPolicy: Delete
   capacity:
     storage: 200Mi
@@ -377,5 +377,5 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - worker-node-2
+          - {{ default "worker-node-2" .Values.workerNode2Hostname }}
 {{- end }}
